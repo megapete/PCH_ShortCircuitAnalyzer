@@ -14,6 +14,12 @@
 		D3A04DF92022892A006B3A56 /* GlobalDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DF82022892A006B3A56 /* GlobalDefs.swift */; };
 		D3A04DFB2022893D006B3A56 /* PCH_Defs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */; };
 		D3A04DFD202289AB006B3A56 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DFC202289AB006B3A56 /* AppController.swift */; };
+		D3E5280620238A8600DF080E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5280420238A8600DF080E /* MainViewController.swift */; };
+		D3E5280720238A8600DF080E /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E5280520238A8600DF080E /* MainViewController.xib */; };
+		D3E5280A2023929000DF080E /* RadialForceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E528082023929000DF080E /* RadialForceController.swift */; };
+		D3E5280B2023929000DF080E /* RadialForceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E528092023929000DF080E /* RadialForceController.xib */; };
+		D3E5280E2023A11700DF080E /* LayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E5280C2023A11700DF080E /* LayerViewController.swift */; };
+		D3E5280F2023A11700DF080E /* LayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3E5280D2023A11700DF080E /* LayerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +34,12 @@
 		D3A04DF82022892A006B3A56 /* GlobalDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalDefs.swift; path = ../../../../Dropbox/MyProjects/GlobalDefs.swift; sourceTree = "<group>"; };
 		D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCH_Defs.swift; path = ../../../../Dropbox/MyProjects/PCH_Defs.swift; sourceTree = "<group>"; };
 		D3A04DFC202289AB006B3A56 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		D3E5280420238A8600DF080E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		D3E5280520238A8600DF080E /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		D3E528082023929000DF080E /* RadialForceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialForceController.swift; sourceTree = "<group>"; };
+		D3E528092023929000DF080E /* RadialForceController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RadialForceController.xib; sourceTree = "<group>"; };
+		D3E5280C2023A11700DF080E /* LayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerViewController.swift; sourceTree = "<group>"; };
+		D3E5280D2023A11700DF080E /* LayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LayerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,12 @@
 			children = (
 				D3A04DE420228800006B3A56 /* AppDelegate.swift */,
 				D3A04DFC202289AB006B3A56 /* AppController.swift */,
+				D3E5280420238A8600DF080E /* MainViewController.swift */,
+				D3E5280520238A8600DF080E /* MainViewController.xib */,
+				D3E5280C2023A11700DF080E /* LayerViewController.swift */,
+				D3E5280D2023A11700DF080E /* LayerViewController.xib */,
+				D3E528082023929000DF080E /* RadialForceController.swift */,
+				D3E528092023929000DF080E /* RadialForceController.xib */,
 				D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */,
 				D3A04DF82022892A006B3A56 /* GlobalDefs.swift */,
 				D3A04DE620228800006B3A56 /* Assets.xcassets */,
@@ -144,6 +162,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3A04DE720228800006B3A56 /* Assets.xcassets in Resources */,
+				D3E5280F2023A11700DF080E /* LayerViewController.xib in Resources */,
+				D3E5280720238A8600DF080E /* MainViewController.xib in Resources */,
+				D3E5280B2023929000DF080E /* RadialForceController.xib in Resources */,
 				D3A04DEA20228800006B3A56 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,10 +176,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E5280A2023929000DF080E /* RadialForceController.swift in Sources */,
+				D3E5280E2023A11700DF080E /* LayerViewController.swift in Sources */,
 				D3A04DFB2022893D006B3A56 /* PCH_Defs.swift in Sources */,
 				D3A04DF92022892A006B3A56 /* GlobalDefs.swift in Sources */,
 				D3A04DE520228800006B3A56 /* AppDelegate.swift in Sources */,
 				D3A04DFD202289AB006B3A56 /* AppController.swift in Sources */,
+				D3E5280620238A8600DF080E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

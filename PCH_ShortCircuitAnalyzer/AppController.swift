@@ -10,14 +10,26 @@ import Cocoa
 
 class AppController: NSObject, NSOpenSavePanelDelegate
 {
-
-    var currentTransformer:PCH_FLD12_TxfoDetails? = nil
     var currentOutputData:PCH_FLD12_OutputData? = nil
     var currentFileName:String? = nil
+    var mainViewController:MainViewController? = nil
     
     // Variable used to hold the current openPanel so the delegate routine can respond correctly
     var openPanel:NSOpenPanel? = nil
     
+    @IBOutlet weak var mainWindow: NSWindow!
+    
+    func setNewDataForDisplay()
+    {
+        if let numLayers = self.currentOutputData?.inputData?.layers?.count
+        {
+            self.mainViewController = MainViewController(intoWindow: mainWindow, numLayers:numLayers)
+        }
+        else
+        {
+            DLog("Invalid output data!")
+        }
+    }
     
     @IBAction func handleOpenFLD12OutputFile(_ sender: Any)
     {
@@ -68,13 +80,12 @@ class AppController: NSObject, NSOpenSavePanelDelegate
             }
             
             self.currentOutputData = outputData
-            
             self.currentFileName = fileURL.deletingPathExtension().lastPathComponent
             
-            self.currentTransformer = outputData.inputData
-    
         }
         
+        self.setNewDataForDisplay()
+    
         self.openPanel = nil
     }
     
