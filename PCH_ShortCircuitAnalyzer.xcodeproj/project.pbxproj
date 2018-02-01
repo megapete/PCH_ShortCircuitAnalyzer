@@ -10,6 +10,10 @@
 		D3A04DE520228800006B3A56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DE420228800006B3A56 /* AppDelegate.swift */; };
 		D3A04DE720228800006B3A56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3A04DE620228800006B3A56 /* Assets.xcassets */; };
 		D3A04DEA20228800006B3A56 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A04DE820228800006B3A56 /* MainMenu.xib */; };
+		D3A04DF420228859006B3A56 /* libPCH_FLD12_Library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A04DF320228859006B3A56 /* libPCH_FLD12_Library.a */; };
+		D3A04DF92022892A006B3A56 /* GlobalDefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DF82022892A006B3A56 /* GlobalDefs.swift */; };
+		D3A04DFB2022893D006B3A56 /* PCH_Defs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */; };
+		D3A04DFD202289AB006B3A56 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A04DFC202289AB006B3A56 /* AppController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		D3A04DE920228800006B3A56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D3A04DEB20228800006B3A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3A04DEC20228800006B3A56 /* PCH_ShortCircuitAnalyzer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PCH_ShortCircuitAnalyzer.entitlements; sourceTree = "<group>"; };
+		D3A04DF320228859006B3A56 /* libPCH_FLD12_Library.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPCH_FLD12_Library.a; path = ../PCH_FLD12_Library_Release/Products/usr/local/lib/libPCH_FLD12_Library.a; sourceTree = "<group>"; };
+		D3A04DF5202288EF006B3A56 /* PCH_ShortCircuitAnalyzer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PCH_ShortCircuitAnalyzer-Bridging-Header.h"; sourceTree = "<group>"; };
+		D3A04DF82022892A006B3A56 /* GlobalDefs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalDefs.swift; path = ../../../../Dropbox/MyProjects/GlobalDefs.swift; sourceTree = "<group>"; };
+		D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCH_Defs.swift; path = ../../../../Dropbox/MyProjects/PCH_Defs.swift; sourceTree = "<group>"; };
+		D3A04DFC202289AB006B3A56 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A04DF420228859006B3A56 /* libPCH_FLD12_Library.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +47,7 @@
 			children = (
 				D3A04DE320228800006B3A56 /* PCH_ShortCircuitAnalyzer */,
 				D3A04DE220228800006B3A56 /* Products */,
+				D3A04DF220228858006B3A56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,12 +63,24 @@
 			isa = PBXGroup;
 			children = (
 				D3A04DE420228800006B3A56 /* AppDelegate.swift */,
+				D3A04DFC202289AB006B3A56 /* AppController.swift */,
+				D3A04DFA2022893D006B3A56 /* PCH_Defs.swift */,
+				D3A04DF82022892A006B3A56 /* GlobalDefs.swift */,
 				D3A04DE620228800006B3A56 /* Assets.xcassets */,
 				D3A04DE820228800006B3A56 /* MainMenu.xib */,
 				D3A04DEB20228800006B3A56 /* Info.plist */,
 				D3A04DEC20228800006B3A56 /* PCH_ShortCircuitAnalyzer.entitlements */,
+				D3A04DF5202288EF006B3A56 /* PCH_ShortCircuitAnalyzer-Bridging-Header.h */,
 			);
 			path = PCH_ShortCircuitAnalyzer;
+			sourceTree = "<group>";
+		};
+		D3A04DF220228858006B3A56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3A04DF320228859006B3A56 /* libPCH_FLD12_Library.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,6 +115,7 @@
 				TargetAttributes = {
 					D3A04DE020228800006B3A56 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,7 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A04DFB2022893D006B3A56 /* PCH_Defs.swift in Sources */,
+				D3A04DF92022892A006B3A56 /* GlobalDefs.swift in Sources */,
 				D3A04DE520228800006B3A56 /* AppDelegate.swift in Sources */,
+				D3A04DFD202289AB006B3A56 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,13 +286,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PCH_ShortCircuitAnalyzer/PCH_ShortCircuitAnalyzer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = /Users/peterhub/Documents/MyProjects/PCH_FLD12_Library_Release/Products/usr/local/include;
 				INFOPLIST_FILE = PCH_ShortCircuitAnalyzer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /Users/peterhub/Documents/MyProjects/PCH_FLD12_Library_Release/Products/usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.huberis-tech.PCH-ShortCircuitAnalyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PCH_ShortCircuitAnalyzer/PCH_ShortCircuitAnalyzer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -274,13 +306,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PCH_ShortCircuitAnalyzer/PCH_ShortCircuitAnalyzer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = /Users/peterhub/Documents/MyProjects/PCH_FLD12_Library_Release/Products/usr/local/include;
 				INFOPLIST_FILE = PCH_ShortCircuitAnalyzer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /Users/peterhub/Documents/MyProjects/PCH_FLD12_Library_Release/Products/usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.huberis-tech.PCH-ShortCircuitAnalyzer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PCH_ShortCircuitAnalyzer/PCH_ShortCircuitAnalyzer-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
