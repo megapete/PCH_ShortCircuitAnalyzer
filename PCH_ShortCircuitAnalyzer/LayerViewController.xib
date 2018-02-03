@@ -16,44 +16,12 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView misplaced="YES" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="711" height="493"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="697" height="651"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ltg-cN-ypu" customClass="ForceView" customModule="PCH_ShortCircuitAnalyzer" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="711" height="0.0"/>
-                    <subviews>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WV-pE-4AG">
-                            <rect key="frame" x="9" y="0.0" width="59" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Coil Bottom" id="XlH-f4-z5B">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tdK-c1-Hql">
-                            <rect key="frame" x="668" y="0.0" width="35" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Coil Top" id="gLY-w8-dV1">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGA-id-ano">
-                            <rect key="frame" x="301" y="0.0" width="108" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Sp. Blk. Force (psi)" id="tEa-SH-HuI">
-                                <font key="font" metaFont="system"/>
-                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </textFieldCell>
-                        </textField>
-                    </subviews>
-                </customView>
-                <customView ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qfM-ms-VrB" customClass="ForceView" customModule="PCH_ShortCircuitAnalyzer" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="711" height="0.0"/>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="qfM-ms-VrB" customClass="ForceView" customModule="PCH_ShortCircuitAnalyzer" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="697" height="215"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGI-Lp-iKo">
                             <rect key="frame" x="9" y="0.0" width="59" height="37"/>
@@ -65,7 +33,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ND9-NO-1wP">
-                            <rect key="frame" x="668" y="0.0" width="35" height="37"/>
+                            <rect key="frame" x="654" y="0.0" width="35" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Coil Top" id="HDH-Ff-80t">
                                 <font key="font" metaFont="system"/>
@@ -74,7 +42,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8m-al-vNi">
-                            <rect key="frame" x="301" y="0.0" width="108" height="37"/>
+                            <rect key="frame" x="295" y="0.0" width="106" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Axial Force (psi)" id="gsv-ez-opU">
                                 <font key="font" metaFont="system"/>
@@ -85,7 +53,7 @@
                     </subviews>
                 </customView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="uk3-1d-pb3" customClass="ForceView" customModule="PCH_ShortCircuitAnalyzer" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="711" height="0.0"/>
+                    <rect key="frame" x="0.0" y="433" width="697" height="218"/>
                     <subviews>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VaJ-Xp-VFh">
                             <rect key="frame" x="9" y="0.0" width="59" height="37"/>
@@ -97,7 +65,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p0W-fT-gmn">
-                            <rect key="frame" x="668" y="0.0" width="35" height="37"/>
+                            <rect key="frame" x="654" y="0.0" width="35" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Coil Top" id="gqn-QL-SlC">
                                 <font key="font" metaFont="system"/>
@@ -106,7 +74,7 @@
                             </textFieldCell>
                         </textField>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qdH-qs-iQH">
-                            <rect key="frame" x="301" y="0.0" width="108" height="37"/>
+                            <rect key="frame" x="295" y="0.0" width="106" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Radial Force (psi)" id="O3f-vd-Qpj">
                                 <font key="font" metaFont="system"/>
@@ -116,22 +84,54 @@
                         </textField>
                     </subviews>
                 </customView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="ltg-cN-ypu" customClass="ForceView" customModule="PCH_ShortCircuitAnalyzer" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="215" width="697" height="218"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WV-pE-4AG">
+                            <rect key="frame" x="9" y="0.0" width="59" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Coil Bottom" id="XlH-f4-z5B">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tdK-c1-Hql">
+                            <rect key="frame" x="654" y="0.0" width="35" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Coil Top" id="gLY-w8-dV1">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rGA-id-ano">
+                            <rect key="frame" x="295" y="0.0" width="106" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Sp. Blk. Force (psi)" id="tEa-SH-HuI">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
             </subviews>
             <constraints>
-                <constraint firstItem="uk3-1d-pb3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="4Zc-c6-Kzv"/>
-                <constraint firstAttribute="trailing" secondItem="ltg-cN-ypu" secondAttribute="trailing" id="8p8-xX-mBG"/>
-                <constraint firstItem="qfM-ms-VrB" firstAttribute="top" secondItem="ltg-cN-ypu" secondAttribute="bottom" id="9mn-Gu-gJg"/>
-                <constraint firstItem="ltg-cN-ypu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ByS-6D-DpM"/>
-                <constraint firstItem="ltg-cN-ypu" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" id="Gvp-Ra-ImT"/>
-                <constraint firstItem="ltg-cN-ypu" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.333333" id="HjC-Dl-eVd"/>
-                <constraint firstAttribute="trailing" secondItem="uk3-1d-pb3" secondAttribute="trailing" id="JEJ-39-2pM"/>
-                <constraint firstItem="uk3-1d-pb3" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.333333" id="M7V-qZ-WSB"/>
-                <constraint firstItem="qfM-ms-VrB" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.333333" id="XjB-hp-SdD"/>
-                <constraint firstItem="ltg-cN-ypu" firstAttribute="top" secondItem="uk3-1d-pb3" secondAttribute="bottom" id="n36-G4-VsH"/>
-                <constraint firstItem="uk3-1d-pb3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="uWh-Gm-fTW"/>
-                <constraint firstAttribute="bottom" secondItem="qfM-ms-VrB" secondAttribute="bottom" id="uvc-HA-DZ6"/>
+                <constraint firstItem="ltg-cN-ypu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="2eV-iS-KuR"/>
+                <constraint firstAttribute="bottom" secondItem="qfM-ms-VrB" secondAttribute="bottom" id="3Rf-Lb-YiH"/>
+                <constraint firstItem="qfM-ms-VrB" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="7hP-8C-mT4"/>
+                <constraint firstItem="ltg-cN-ypu" firstAttribute="top" secondItem="uk3-1d-pb3" secondAttribute="bottom" id="9xS-6I-8rY"/>
+                <constraint firstItem="ltg-cN-ypu" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.333333" constant="1" id="Lja-vj-oD8"/>
+                <constraint firstAttribute="trailing" secondItem="ltg-cN-ypu" secondAttribute="trailing" id="O1J-NA-HNm"/>
+                <constraint firstItem="uk3-1d-pb3" firstAttribute="height" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.333333" constant="1" id="ShT-Hb-NEs"/>
+                <constraint firstItem="qfM-ms-VrB" firstAttribute="top" secondItem="ltg-cN-ypu" secondAttribute="bottom" id="Ucb-fs-6Yl"/>
+                <constraint firstItem="uk3-1d-pb3" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="W9h-Fd-VHw"/>
+                <constraint firstItem="uk3-1d-pb3" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dEf-VG-brD"/>
+                <constraint firstAttribute="trailing" secondItem="uk3-1d-pb3" secondAttribute="trailing" id="pji-uI-Gey"/>
+                <constraint firstAttribute="trailing" secondItem="qfM-ms-VrB" secondAttribute="trailing" id="xQP-Ty-kw4"/>
             </constraints>
-            <point key="canvasLocation" x="246.5" y="156.5"/>
+            <point key="canvasLocation" x="239.5" y="235.5"/>
         </customView>
     </objects>
 </document>

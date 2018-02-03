@@ -15,6 +15,7 @@ class LayerViewController: NSViewController {
     @IBOutlet weak var axialForceView: ForceView!
     
     
+    
     override func viewWillAppear()
     {
         // make the view take up the entire bounds of its parent (which should be a tab view)
