@@ -10,7 +10,7 @@ import Cocoa
 
 class ForceView: NSView {
 
-    var data:[(time:Double, value:Double)] = []
+    var data:[(dimn:Double, value:Double)] = []
     
     let graphXaxisOffset:CGFloat = 5.0
     let graphYaxisTopOffset:CGFloat = 5.0

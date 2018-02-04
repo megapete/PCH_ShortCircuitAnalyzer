@@ -8,11 +8,20 @@
 
 import Cocoa
 
+enum TransformerDataType {
+    
+    case imperial
+    case metric
+    
+}
+
 class AppController: NSObject, NSOpenSavePanelDelegate
 {
     var currentOutputData:PCH_FLD12_OutputData? = nil
     var currentFileName:String? = nil
     var mainViewController:MainViewController? = nil
+    
+    var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]] = [[]]
     
     // Variable used to hold the current openPanel so the delegate routine can respond correctly
     var openPanel:NSOpenPanel? = nil
@@ -21,14 +30,76 @@ class AppController: NSObject, NSOpenSavePanelDelegate
     
     func setNewDataForDisplay()
     {
-        if let numLayers = self.currentOutputData?.inputData?.layers?.count
-        {
-            self.mainViewController = MainViewController(intoWindow: mainWindow, numLayers:numLayers)
-        }
-        else
+        guard let outputData = self.currentOutputData else
         {
             DLog("Invalid output data!")
+            ShowSimpleCriticalPanelWithString("Invalid output data")
+            return
         }
+        
+        guard let inputData:PCH_FLD12_TxfoDetails = outputData.inputData else
+        {
+            DLog("Invalid input data!")
+            ShowSimpleCriticalPanelWithString("Invalid input data")
+            return
+        }
+        
+        guard let layers:[PCH_FLD12_Layer] = inputData.layers as? [PCH_FLD12_Layer] else
+        {
+            DLog("Invalid layer data!")
+            ShowSimpleCriticalPanelWithString("Invalid layer data")
+            return
+        }
+        
+        self.mainViewController = MainViewController(intoWindow: mainWindow, numLayers:layers.count)
+        
+        guard let segmentSCdata:[SegmentData] = outputData.segmentData as? [SegmentData] else
+        {
+            DLog("Invalid output segment data!")
+            ShowSimpleCriticalPanelWithString("Invalid output segment data")
+            return
+        }
+        
+        // reset the global variable holding the sc data
+        self.scDataArray = [[]]
+        
+        for nextLayer in layers
+        {
+            var scArray:[(x:Double, y:Double)] = []
+            
+            guard let segArray:[PCH_FLD12_Segment] = nextLayer.segments as? [PCH_FLD12_Segment] else
+            {
+                DLog("Invalid input segment data!")
+                ShowSimpleCriticalPanelWithString("Invalid input segment data")
+                return
+            }
+            
+            for nextSegment in segArray
+            {
+                var scData:(radial:Double, spBlk:Double, axial:Double) = (0.0, 0.0, 0.0)
+                
+                for nextSCdata in segmentSCdata
+                {
+                    if (nextSCdata.number == nextSegment.segmentNumber)
+                    {
+                        scData = (nextSCdata.scMaxTensionCompression, nextSCdata.scForceInSpacerBlocks, nextSCdata.scCombinedForce)
+                        
+                        break;
+                    }
+                }
+                
+                if segArray.count == 1
+                {
+                    
+                }
+                else
+                {
+                    
+                }
+                
+            }
+        }
+        
     }
     
     @IBAction func handleOpenFLD12OutputFile(_ sender: Any)

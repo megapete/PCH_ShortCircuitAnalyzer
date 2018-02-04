@@ -14,7 +14,8 @@ class LayerViewController: NSViewController {
     @IBOutlet weak var spBlkForceView: ForceView!
     @IBOutlet weak var axialForceView: ForceView!
     
-    
+    var indDataType:TransformerDataType = .imperial
+    var outDataType:TransformerDataType = .metric
     
     override func viewWillAppear()
     {
