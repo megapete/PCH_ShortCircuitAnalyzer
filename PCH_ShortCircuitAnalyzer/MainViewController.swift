@@ -13,7 +13,33 @@ class MainViewController: NSViewController {
     var tabView:NSTabView? = nil
     var numLayers:Int = 0
     var layerViewControllers:[LayerViewController] = []
+    
+    var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]]? = nil
 
+    func SetData(data:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]])
+    {
+        self.scDataArray = data
+        
+        if (layerViewControllers.count > 0)
+        {
+            self.ShowData()
+        }
+    }
+    
+    func ShowData()
+    {
+        guard let data = self.scDataArray else
+        {
+            DLog("Data cannot be nil when calling ShowData()")
+            return
+        }
+        
+        for layerIndex in 0..<self.layerViewControllers.count
+        {
+            
+        }
+    }
+    
     // Initializer to stick the new input file view right into a window
     convenience init(intoWindow:NSWindow, numLayers:Int)
     {
@@ -74,6 +100,10 @@ class MainViewController: NSViewController {
             self.layerViewControllers.append(newLayerVC)
         }
         
+        if self.scDataArray != nil
+        {
+            self.ShowData()
+        }
     }
     
     override func viewDidLoad() {

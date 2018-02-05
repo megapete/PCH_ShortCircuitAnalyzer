@@ -18,6 +18,7 @@ enum TransformerDataType {
 class AppController: NSObject, NSOpenSavePanelDelegate
 {
     var currentOutputData:PCH_FLD12_OutputData? = nil
+    var currentTxfoDataType:TransformerDataType = .imperial
     var currentFileName:String? = nil
     var mainViewController:MainViewController? = nil
     
@@ -44,6 +45,8 @@ class AppController: NSObject, NSOpenSavePanelDelegate
             return
         }
         
+        self.currentTxfoDataType = (inputData.inputUnits == 1 ? .metric : .imperial)
+        
         guard let layers:[PCH_FLD12_Layer] = inputData.layers as? [PCH_FLD12_Layer] else
         {
             DLog("Invalid layer data!")
@@ -53,10 +56,18 @@ class AppController: NSObject, NSOpenSavePanelDelegate
         
         self.mainViewController = MainViewController(intoWindow: mainWindow, numLayers:layers.count)
         
-        guard let segmentSCdata:[SegmentData] = outputData.segmentData as? [SegmentData] else
+        // We use the same yucky logic developed in my AndersenFileReader project to convert 
+        guard let segmentSCasData = outputData.segmentData as? [Data] else
         {
-            DLog("Invalid output segment data!")
-            ShowSimpleCriticalPanelWithString("Invalid output segment data")
+            DLog("Could not get segments as Data")
+            ShowSimpleCriticalPanelWithString("A serious error occurred (could not read array as Data).")
+            return
+        }
+        
+        guard let segmentArray:[SegmentData] = ConvertDataArray(dataArray: segmentSCasData) else
+        {
+            DLog("Could not convert data array to SegmentData array!")
+            ShowSimpleCriticalPanelWithString("Could not convert data array to SegmentData array!")
             return
         }
         
@@ -65,7 +76,7 @@ class AppController: NSObject, NSOpenSavePanelDelegate
         
         for nextLayer in layers
         {
-            var scArray:[(x:Double, y:Double)] = []
+            var scArray:[(x:Double, (radial:Double, spBlk:Double, axial:Double))] = []
             
             guard let segArray:[PCH_FLD12_Segment] = nextLayer.segments as? [PCH_FLD12_Segment] else
             {
@@ -78,7 +89,7 @@ class AppController: NSObject, NSOpenSavePanelDelegate
             {
                 var scData:(radial:Double, spBlk:Double, axial:Double) = (0.0, 0.0, 0.0)
                 
-                for nextSCdata in segmentSCdata
+                for nextSCdata in segmentArray
                 {
                     if (nextSCdata.number == nextSegment.segmentNumber)
                     {
@@ -90,14 +101,18 @@ class AppController: NSObject, NSOpenSavePanelDelegate
                 
                 if segArray.count == 1
                 {
-                    
+                    scArray.append((nextSegment.zMin, scData))
+                    scArray.append((nextSegment.zMax, scData))
                 }
                 else
                 {
-                    
+                    let avgZ = (nextSegment.zMin + nextSegment.zMax) / 2.0
+                    scArray.append((avgZ, scData))
                 }
                 
             }
+            
+            self.scDataArray.append(scArray)
         }
         
     }
