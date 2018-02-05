@@ -14,11 +14,16 @@ class MainViewController: NSViewController {
     var numLayers:Int = 0
     var layerViewControllers:[LayerViewController] = []
     
-    var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]]? = nil
+    // make these private to force the calling routine to call the SetData function
+    private var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]]? = nil
+    private var inputUnits:TransformerDataType = .imperial
+    private var outputUnits:TransformerDataType = .metric
 
-    func SetData(data:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]])
+    func SetData(data:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]], inputUnits:TransformerDataType, outputUnits:TransformerDataType)
     {
         self.scDataArray = data
+        self.inputUnits = inputUnits
+        self.outputUnits = outputUnits
         
         if (layerViewControllers.count > 0)
         {
@@ -34,9 +39,15 @@ class MainViewController: NSViewController {
             return
         }
         
+        guard self.layerViewControllers.count > 0 else
+        {
+            DLog("Layer controllers have not been created!")
+            return
+        }
+        
         for layerIndex in 0..<self.layerViewControllers.count
         {
-            
+            self.layerViewControllers[layerIndex].SetData(data: data[layerIndex], inputUnits: self.inputUnits, outputUnits: self.outputUnits)
         }
     }
     

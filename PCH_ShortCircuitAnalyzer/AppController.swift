@@ -22,7 +22,7 @@ class AppController: NSObject, NSOpenSavePanelDelegate
     var currentFileName:String? = nil
     var mainViewController:MainViewController? = nil
     
-    var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]] = [[]]
+    var scDataArray:[[(x:Double, (radial:Double, spBlk:Double, axial:Double))]] = []
     
     // Variable used to hold the current openPanel so the delegate routine can respond correctly
     var openPanel:NSOpenPanel? = nil
@@ -72,7 +72,7 @@ class AppController: NSObject, NSOpenSavePanelDelegate
         }
         
         // reset the global variable holding the sc data
-        self.scDataArray = [[]]
+        self.scDataArray = []
         
         for nextLayer in layers
         {
@@ -114,6 +114,14 @@ class AppController: NSObject, NSOpenSavePanelDelegate
             
             self.scDataArray.append(scArray)
         }
+        
+        guard let mainViewCtrl = self.mainViewController else
+        {
+            DLog("No main view controller")
+            return
+        }
+        
+        mainViewCtrl.SetData(data: self.scDataArray, inputUnits: self.currentTxfoDataType, outputUnits: .imperial)
         
     }
     

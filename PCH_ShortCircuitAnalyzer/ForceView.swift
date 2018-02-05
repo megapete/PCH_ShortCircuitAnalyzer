@@ -81,7 +81,13 @@ class ForceView: NSView {
         linePath.stroke()
     }
     
-    func setScaleWithMaxValues(xMax:Double, yMax:Double)
+    func SetOriginWithActualValues(x:Double, y:Double)
+    {
+        graphOrigin.x = CGFloat(x) * scale.x + self.graphXaxisOffset + 5.0
+        graphOrigin.y = CGFloat(y) * scale.y + self.graphYaxisBottomOffset + 5.0
+    }
+    
+    func SetScaleWithMaxValues(xMax:Double, yMax:Double)
     {
         let yMaxHeight = self.bounds.height - self.graphYaxisTopOffset - self.graphOrigin.y
         let xMaxWidth = self.bounds.width - self.graphXaxisOffset - self.graphOrigin.x
