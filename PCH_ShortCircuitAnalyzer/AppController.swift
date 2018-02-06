@@ -31,6 +31,8 @@ class AppController: NSObject, NSOpenSavePanelDelegate
     
     func setNewDataForDisplay()
     {
+        DLog("Window rect: \(mainWindow.frame)")
+        
         guard let outputData = self.currentOutputData else
         {
             DLog("Invalid output data!")

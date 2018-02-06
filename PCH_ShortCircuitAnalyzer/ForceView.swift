@@ -19,6 +19,7 @@ class ForceView: NSView {
     var graphOrigin:NSPoint = NSPoint(x: 10.0, y: 50.0)
     
     var scale:NSPoint = NSPoint(x: 1.0, y: 1.0)
+    var scaleBounds:NSRect = NSRect()
     
     var maxStress:CGFloat = 0.0
 
@@ -69,12 +70,12 @@ class ForceView: NSView {
             if (firstPoint)
             {
                 linePath.move(to: NSPoint(x:self.graphOrigin.x + CGFloat(x) * self.scale.x, y:self.graphOrigin.y + CGFloat(y) * self.scale.y))
+                
                 firstPoint = false
             }
             else
             {
                 linePath.line(to: NSPoint(x:self.graphOrigin.x + CGFloat(x) * self.scale.x, y:self.graphOrigin.y + CGFloat(y) * self.scale.y))
-                firstPoint = false
             }
         }
         
@@ -89,12 +90,33 @@ class ForceView: NSView {
     
     func SetScaleWithMaxValues(xMax:Double, yMax:Double)
     {
-        let yMaxHeight = self.bounds.height - self.graphYaxisTopOffset - self.graphOrigin.y
-        let xMaxWidth = self.bounds.width - self.graphXaxisOffset - self.graphOrigin.x
+        // DLog("View rect: \(self.bounds)")
         
-        scale.x = xMaxWidth / CGFloat(xMax)
-        scale.y = yMaxHeight / max(CGFloat(yMax), self.maxStress)
+        let yMaxHeight = self.bounds.height - self.graphYaxisTopOffset - self.graphYaxisBottomOffset - 10.0
+        let xMaxWidth = self.bounds.width - self.graphXaxisOffset * 2.0 - 10.0
         
+        self.scale.x = xMaxWidth / CGFloat(xMax)
+        self.scale.y = yMaxHeight / CGFloat(yMax)
+        
+        // save the bounds that the scale was calculated with (we'll need it in the event of a resize of the window)
+        self.scaleBounds = self.bounds
+    }
+    
+    func ResetDimensionsAfterResize()
+    {
+        let newMaxWidth = self.bounds.width - self.graphXaxisOffset * 2.0 - 10.0
+        let oldMaxWidth = self.scaleBounds.width - self.graphXaxisOffset * 2.0 - 10.0
+        let newMaxHeight = self.bounds.height - self.graphYaxisTopOffset - self.graphYaxisBottomOffset - 10.0
+        let oldMaxHeight = self.scaleBounds.height - self.graphYaxisTopOffset - self.graphYaxisBottomOffset - 10.0
+        
+        self.scale.x *= newMaxWidth / oldMaxWidth
+        self.scale.y *= newMaxHeight / oldMaxHeight
+        
+        self.scaleBounds = self.bounds
+        
+        // fix the origin according to the new scale
+        graphOrigin.x = (graphOrigin.x - self.graphXaxisOffset - 5.0) * newMaxWidth / oldMaxWidth + self.graphXaxisOffset + 5.0
+        graphOrigin.y = (graphOrigin.y - self.graphYaxisBottomOffset - 5.0) * newMaxHeight / oldMaxHeight + self.graphYaxisBottomOffset + 5.0
     }
     
 }

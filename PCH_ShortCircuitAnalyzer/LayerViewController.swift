@@ -70,8 +70,8 @@ class LayerViewController: NSViewController {
         for nextData in allData
         {
             let nextX = nextData.x * xMultiplier
-            var nextY = nextData.y.radial * yMultiplier
             
+            var nextY = nextData.y.radial * yMultiplier
             minRadValue = min(0.0, (nextY < minRadValue ? nextY : minRadValue))
             maxRadValue = max(0.0, (nextY > maxRadValue ? nextY : maxRadValue))
             radialData.append((nextX, nextY))
@@ -87,10 +87,20 @@ class LayerViewController: NSViewController {
             axialData.append((nextX, nextY))
         }
         
-        self.radialForceView.SetScaleWithMaxValues(xMax: allData.last!.x, yMax: (maxRadValue - minRadValue))
+        self.radialForceView.SetScaleWithMaxValues(xMax: allData.last!.x * xMultiplier, yMax: (maxRadValue - minRadValue))
         self.radialForceView.SetOriginWithActualValues(x: 0.0, y: -minRadValue)
         self.radialForceView.data = radialData
         self.radialForceView.needsDisplay = true
+        
+        self.spBlkForceView.SetScaleWithMaxValues(xMax: allData.last!.x * xMultiplier, yMax: (maxSpBlkValue - minSpBlkValue))
+        self.spBlkForceView.SetOriginWithActualValues(x: 0.0, y: -minSpBlkValue)
+        self.spBlkForceView.data = spBlkData
+        self.spBlkForceView.needsDisplay = true
+        
+        self.axialForceView.SetScaleWithMaxValues(xMax: allData.last!.x * xMultiplier, yMax: (maxAxialValue - minAxialValue))
+        self.axialForceView.SetOriginWithActualValues(x: 0.0, y: -minAxialValue)
+        self.axialForceView.data = axialData
+        self.axialForceView.needsDisplay = true
         
     }
     
@@ -108,10 +118,7 @@ class LayerViewController: NSViewController {
         self.view.frame = tabView.contentRect
     }
     
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        // Do view setup here.
+    override func viewDidAppear() {
         
         self.viewsAreAvailable = true
         
@@ -119,6 +126,26 @@ class LayerViewController: NSViewController {
         {
             ShowData()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(HandleWindowResize), name: NSView.frameDidChangeNotification, object: self.view)
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        // Do view setup here.
+        
+        
+    }
+    
+    @objc func HandleWindowResize(notification:NSNotification)
+    {
+        self.radialForceView.ResetDimensionsAfterResize()
+        self.radialForceView.needsDisplay = true
+        self.spBlkForceView.ResetDimensionsAfterResize()
+        self.spBlkForceView.needsDisplay = true
+        self.axialForceView.ResetDimensionsAfterResize()
+        self.axialForceView.needsDisplay = true
     }
     
 }
